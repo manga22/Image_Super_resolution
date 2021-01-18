@@ -1,8 +1,8 @@
 # Image_Super_resolution
 
-Modify the config file to set all paths and model parameters
+Modify the config file to set paths and model parameters like upscale_factor, noise_level, patch_size, stride, train_dir, test_dir
 
-Config file: config/config.ini
+Example config file: config/config.ini
 
 
 ## To train the model
