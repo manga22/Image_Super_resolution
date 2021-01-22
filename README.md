@@ -30,7 +30,7 @@ test_img_dir = data/test      #Path to test data
 ```python train.py --config=path/to/config.ini --model_path=/path/to/save/model --epochs=300```
 
 Example:
-```python train.py --config=config/config_noise_4.ini.ini --model_path=models/upscale2x_noise4 --epochs=300```
+```python train.py --config=config/config_noise_4.ini --model_path=models/upscale2x_noise4.h5 --epochs=300```
 
 Config files used for training are present in 'config' folder. Trained models are saved in 'models' folder
 
@@ -39,7 +39,7 @@ Config files used for training are present in 'config' folder. Trained models ar
 ```python inference.py --model_path=path/to/model --test_image_path=path/to/test_image```
 
 Example:
-```python inference.py --model_path=models/upscale2x.h5 --test_image_path=data/test/baby.png```
+```python inference.py --model_path=models/upscale2x.h5 --test_image_path=data/test/butterfly.png```
 
 ### To evaluate PSNR metric on test dataset 
 
