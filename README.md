@@ -36,14 +36,14 @@ Config files used for training are present in 'config' folder. Trained models ar
 
 ### To test the model on a given image
 
-```python test.py --model_path=path/to/model --test_image_path=path/to/test_image```
+```python inference.py --model_path=path/to/model --test_image_path=path/to/test_image```
 
 Example:
-```python test.py --model_path=models/upscale2x.h5 --test_image_path=data/test/baby.png```
+```python inference.py --model_path=models/upscale2x.h5 --test_image_path=data/test/baby.png```
 
 ### To evaluate PSNR metric on test dataset 
 
-```python test.py --model_path=path/to/model --test_dir=path/to/test/directory --noise_level=k```
+```python eval_test.py --model_path=path/to/model --test_dir=path/to/test/directory --noise_level=k```
 
 Example:
-```python eval.py --model_path=models/upscale2x_noise4.h5 --test_dir=data/test --noise_level=4```
+```python eval_test.py --model_path=models/upscale2x_noise4.h5 --test_dir=data/test --noise_level=4```
