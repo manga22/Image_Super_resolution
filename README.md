@@ -31,6 +31,7 @@ test_img_dir = data/test      #Path to test data
 
 Example:
 ```python train.py --config=config/config_noise_4.ini.ini --model_path=models/upscale2x_noise4 --epochs=300```
+
 Config files used for training are present in 'config' folder. Trained models are saved in 'models' folder
 
 ### To test the model on a given image
