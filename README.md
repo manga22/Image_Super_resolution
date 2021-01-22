@@ -1,6 +1,10 @@
 # Image_Super_resolution
 
-Required libraries: tensorflow-2.4.0, skimage, opencv, matplotlib
+Autoencoder based image super resolution is defined to upscale images by 2X. 
+Models are trained for 2X upscaling and denoising by corrupting the input low resolution images with gaussian noise of variances 0, 4, 8, 16, 25.
+
+#### Required libraries: 
+`tensorflow-2.4.0, skimage, opencv, matplotlib`
 
 ### Prepare config file for training and testing
 Prepare the config file to set paths and model parameters for model training and save in 'config' folder
@@ -21,18 +25,22 @@ test_img_dir = data/test      #Path to test data
 
 
 
-## To train the model
+### To train the model
 
-```python train.py --config=path/to/config.ini --model_path=/path/to/save/model --epochs=200```
+```python train.py --config=path/to/config.ini --model_path=/path/to/save/model --epochs=300```
 
-## To test the model on a given image
+Example:
+```python train.py --config=config/config_noise_4.ini.ini --model_path=models/upscale2x_noise4 --epochs=300```
+Config files used for training are present in 'config' folder. Trained models are saved in 'models' folder
+
+### To test the model on a given image
 
 ```python test.py --model_path=path/to/model --test_image_path=path/to/test_image```
 
 Example:
 ```python test.py --model_path=models/upscale2x.h5 --test_image_path=data/test/baby.png```
 
-## To evaluate PSNR metric on test dataset 
+### To evaluate PSNR metric on test dataset 
 
 ```python test.py --model_path=path/to/model --test_dir=path/to/test/directory --noise_level=k```
 
