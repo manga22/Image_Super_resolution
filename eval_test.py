@@ -11,8 +11,8 @@ def eval_test(model_path, test_dir, noise_level, plot=False):
   pretrained_model = models.load_model(args.model_path)
   psnr_test=[]
   test_files=glob.glob(test_dir+'/*')
-  for path in test_files:
-    image = imread(path)
+  for im_path in test_files:
+    image = imread(im_path)
     h, w, _ = image.shape
     noisy_im = image + np.random.normal(0,noise_level,image.shape)
     image_downscaled = cv2.resize(image, (int(w/2),int(h/2)), interpolation=cv2.INTER_CUBIC )
@@ -27,6 +27,8 @@ def eval_test(model_path, test_dir, noise_level, plot=False):
     #Evaluate PSNR
     output_psnr = psnr(hr_pred, image)
     psnr_test.append(output_psnr)
+    im_name = im_path.split('/')[-1]
+    print(f'PSNR for image {im_name} for noise level: {noise_level}: {output_psnr}')
 
     if plot:
       plt.imshow(noisy_image_downscaled)

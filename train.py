@@ -49,19 +49,16 @@ def create_upscale2x_model():
   
       model = keras.Sequential([
       layers.Input(shape=(None, None, 3)), 
-      layers.Conv2D(16, (3,3), activation='relu', padding='same', strides=2),
       layers.Conv2D(32, (3,3), activation='relu', padding='same', strides=2),
       layers.Conv2D(64, (3,3), activation='relu', padding='same', strides=2),
+      layers.Conv2D(128, (3,3), activation='relu', padding='same', strides=2),
       layers.Conv2DTranspose(64, kernel_size=3, strides=2, activation='relu', padding='same'),
       layers.Conv2DTranspose(32, kernel_size=3, strides=2, activation='relu', padding='same'),
       layers.Conv2DTranspose(16, kernel_size=3, strides=2, activation='relu', padding='same'),
-      #layers.Conv2DTranspose(32, kernel_size=3, strides=2, activation='relu', padding='same'),
-      layers.Conv2DTranspose(16, kernel_size=3, strides=2, activation='relu', padding='same'),
-      layers.Conv2D(3, kernel_size=(3,3), activation='relu', padding='same')])
+      layers.Conv2DTranspose(3, kernel_size=3, strides=2, activation='sigmoid', padding='same')])
     
       model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), loss=losses.MeanSquaredError()) 
-      return model 
-
+      return model
 
 
 def train(config='config/config.ini',save_model_path='models/upscale2x_model.h5', epochs = 200):
