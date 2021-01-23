@@ -7,6 +7,9 @@ Models are trained for 2X upscaling and denoising by corrupting the input low re
 `tensorflow-2.4.0, skimage, opencv, matplotlib`
 
 ### Prepare config file for training and testing
+
+Download the training data from https://drive.google.com/file/d/1dfsToAYgecVARKjw2wtQS5tsn6pzG6pr/view?usp=sharing and extract the images into 'data/train' folder.
+
 Prepare the config file to set paths and model parameters for model training and save in 'config' folder
 
 ```
